@@ -3,26 +3,24 @@ import LeftImage from "../assets/images/lg-page-left.png";
 import RightBg from "../assets/images/transparent-bg.png";
 import { useNavigate } from "react-router-dom";
 
-function Login() {
+function Signup() {
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const navigate = useNavigate();
 
-  const handleLogin = () => {
-    console.log("Login clicked", { email, password });
+  const handleSignUp = () => {
+    console.log("SignUp clicked", { email, password });
   };
 
   const handleGoogleLogin = () => {
     console.log("Google Login clicked");
   };
 
-  const handleSignUp = () => {
-    navigate("/signup");
-  };
-
-  const handleForgotPassword = () => {
-    navigate("/forget-password");
+  const handleLogin = () => {
+    navigate("/");
   };
 
   return (
@@ -50,13 +48,39 @@ function Login() {
           <div className="p-8 bg-white rounded-lg shadow-md">
             <div className="mb-6">
               <h2 className="text-2xl font-bold text-gray-900 mb-2 tracking-wider">
-                Login
+                Sign Up
               </h2>
               <p className="text-sm font-light text-gray-700">
-                Enter to your Email below to login to your Account.
+                Enter your information to create an account.
               </p>
             </div>
             <div className="space-y-4">
+              <div className="flex gap-4 flex-col sm:flex-row">
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    First Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Sam"
+                    value={firstName}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:border-transparent text-sm"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-gray-700 mb-1">
+                    Last Name
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="Curren"
+                    value={lastName}
+                    onChange={(e) => setLastName(e.target.value)}
+                    className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:border-transparent text-sm"
+                  />
+                </div>
+              </div>
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Email
@@ -74,12 +98,6 @@ function Login() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">
                     Password
                   </label>
-                  <button
-                    className="text-sm text-gray-600 hover:text-gray-900 underline cursor-pointer"
-                    onClick={handleForgotPassword}
-                  >
-                    Forgot Password ?
-                  </button>
                 </div>
                 <input
                   type="password"
@@ -90,10 +108,10 @@ function Login() {
                 />
               </div>
               <button
-                onClick={handleLogin}
+                onClick={handleSignUp}
                 className="w-full text-white bg-amber-700 font-medium py-3 px-4 rounded-md transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2 cursor-pointer"
               >
-                Login
+                Sign Up
               </button>
               <button
                 onClick={handleGoogleLogin}
@@ -104,12 +122,12 @@ function Login() {
             </div>
             <div className="mt-6 text-center">
               <p className="text-sm text-gray-600">
-                Don't have an account?{" "}
+                Already have an account?{" "}
                 <button
-                  onClick={handleSignUp}
-                  className="*text-amber-700 underline font-medium cursor-pointer"
+                  onClick={handleLogin}
+                  className="cursor-pointer text-gray-700 underline font-medium"
                 >
-                  Sign Up
+                  Login
                 </button>
               </p>
             </div>
@@ -120,4 +138,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Signup;
