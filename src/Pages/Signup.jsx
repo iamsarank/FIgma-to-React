@@ -12,7 +12,7 @@ function Signup() {
   const navigate = useNavigate();
 
   const handleSignUp = () => {
-    console.log("SignUp clicked", { email, password });
+    navigate("/verify-account");
   };
 
   const handleGoogleLogin = () => {
