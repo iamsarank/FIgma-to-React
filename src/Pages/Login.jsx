@@ -10,7 +10,7 @@ function Login() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    console.log("Login clicked", { email, password });
+    navigate("/verify-account");
   };
 
   const handleGoogleLogin = () => {
