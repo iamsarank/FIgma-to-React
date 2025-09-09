@@ -8,6 +8,7 @@ import Signup from "./Pages/Signup.jsx";
 import ForgetPassword from "./Pages/ForgetPassword.jsx";
 import VerifyAccount from "./Pages/VerifyAccount.jsx";
 import Header from "./Components/Header.jsx";
+import Footer from "./Components/Footer.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -20,6 +21,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/verify-account" element={<VerifyAccount />} />
         <Route path="/" element={<App />} />
       </Routes>
+      <Footer />
     </BrowserRouter>
   </StrictMode>
 );
